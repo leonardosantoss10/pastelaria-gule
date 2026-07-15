@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastelaria Gule | Pastéis Super Recheados em Guarulhos</title>
+<meta name="description" content="Pastelaria Gule — pastéis super recheados, massa crocante e muito sabor. Presencial, retirada e delivery para Cumbica e região de Guarulhos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237A1220'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23E3A72F' font-family='Georgia,serif' font-weight='700'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --gold:#E3A72F;
+  --gold-light:#F6CE68;
+  --gold-dark:#A9761A;
+  --red:#7A1220;
+  --red-deep:#4A0C13;
+  --black:#1B1310;
+  --black-soft:#2A1E19;
+  --cream:#FFF8EC;
+  --cream-dim:#F1E4CB;
+  --white:#FFFFFF;
+  --shadow: 0 20px 50px -20px rgba(27,19,16,.45);
+  --ease: cubic-bezier(.16,.84,.44,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important;}
+}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--cream);
+  color:var(--black);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+:focus-visible{outline:3px solid var(--gold); outline-offset:3px;}
+
+.eyebrow{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.75rem;
+  color:var(--red);
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+}
+.eyebrow::before{
+  content:"";
+  width:22px;height:2px;
+  background:var(--red);
+  display:inline-block;
+}
+h1,h2,h3,h4{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:-.01em;
+  color:var(--black);
+}
+.section{padding:7rem 1.5rem;position:relative;}
+.section-inner{max-width:1180px;margin:0 auto;}
+.section-head{max-width:640px;margin-bottom:3.5rem;}
+.section-head h2{font-size:clamp(2rem,4.2vw,3.1rem);margin-top:.7rem;}
+.section-head p{margin-top:1rem;font-size:1.05rem;color:#4a3a30;max-width:520px;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal-stagger.in > *{opacity:1;transform:translateY(0);}
+.reveal-stagger.in > *:nth-child(1){transition-delay:.05s;}
+.reveal-stagger.in > *:nth-child(2){transition-delay:.13s;}
+.reveal-stagger.in > *:nth-child(3){transition-delay:.21s;}
+.reveal-stagger.in > *:nth-child(4){transition-delay:.29s;}
+.reveal-stagger.in > *:nth-child(5){transition-delay:.37s;}
+.reveal-stagger.in > *:nth-child(6){transition-delay:.45s;}
+
+/* scallop divider — the crimped pastel-edge motif, used as the site's signature device */
+.scallop{width:100%;height:26px;display:block;}
+.scallop-flip{transform:rotate(180deg);}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  padding:1rem 2rem;
+  border-radius:100px;
+  font-weight:700;
+  font-size:.95rem;
+  letter-spacing:.01em;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold) 60%,var(--gold-dark));
+  color:var(--red-deep);
+  box-shadow:0 14px 30px -10px rgba(227,167,47,.55);
+}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 38px -12px rgba(227,167,47,.7);}
+.btn-outline{
+  background:transparent;
+  border:1.5px solid rgba(27,19,16,.25);
+  color:var(--black);
+}
+.btn-outline:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px);}
+.btn-light{background:var(--white);color:var(--red-deep);}
+.btn-light:hover{transform:translateY(-3px);box-shadow:0 16px 30px -14px rgba(0,0,0,.35);}
+.btn svg{width:18px;height:18px;flex-shrink:0;}
+
+/* ===== NAV ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.4rem 1.5rem;
+  transition:padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+}
+header.scrolled{
+  padding:.8rem 1.5rem;
+  background:rgba(27,19,16,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px -18px rgba(0,0,0,.6);
+}
+.nav-wrap{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:'Fraunces',serif;font-weight:700;font-size:1.35rem;color:var(--cream);}
+.logo-mark{width:42px;height:42px;flex-shrink:0;}
+.logo small{display:block;font-family:'Manrope',sans-serif;font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);margin-top:.15rem;}
+.nav-links{display:flex;align-items:center;gap:2.2rem;}
+.nav-links a{
+  color:var(--cream);
+  font-weight:600;
+  font-size:.92rem;
+  position:relative;
+  padding:.3rem 0;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--gold);
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:flex;align-items:center;gap:.9rem;}
+.nav-cta .btn-primary{padding:.75rem 1.5rem;font-size:.85rem;}
+.burger{display:none;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);align-items:center;justify-content:center;flex-shrink:0;}
+.burger span{position:relative;width:20px;height:2px;background:var(--cream);display:block;}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--cream);transition:transform .3s;}
+.burger span::before{top:-6px;}
+.burger span::after{top:6px;}
+
+.mobile-menu{
+  position:fixed;inset:0;background:var(--black);z-index:99;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;
+  transform:translateY(-100%);transition:transform .5s var(--ease);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{color:var(--cream);font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;}
+.mobile-menu a:nth-child(6){margin-top:1rem;}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;
+  padding:9rem 1.5rem 6rem;
+  background:
+    radial-gradient(1100px 700px at 82% 10%, rgba(227,167,47,.16), transparent 60%),
+    radial-gradient(900px 600px at 8% 95%, rgba(122,18,32,.35), transparent 60%),
+    linear-gradient(160deg,var(--black) 0%, var(--black-soft) 55%, #211712 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 1px, transparent 1px, transparent 68px);
+  pointer-events:none;
+}
+.hero-grid{
+  max-width:1240px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;
+  position:relative;z-index:2;
+}
+.hero-eyebrow{color:var(--gold-light);}
+.hero-eyebrow::before{background:var(--gold-light);}
+.hero h1{
+  color:var(--cream);
+  font-size:clamp(2.6rem,5.6vw,4.4rem);
+  margin-top:1rem;
+}
+.hero h1 em{
+  font-style:italic;font-weight:500;color:var(--gold-light);
+  background:linear-gradient(90deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{
+  color:rgba(255,248,236,.78);
+  font-size:1.15rem;max-width:480px;margin-top:1.4rem;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.4rem;}
+.hero-stats{display:flex;gap:2.2rem;margin-top:3.2rem;flex-wrap:wrap;}
+.hero-stats div strong{display:block;font-family:'Fraunces',serif;font-size:1.9rem;color:var(--gold-light);}
+.hero-stats div span{font-size:.8rem;color:rgba(255,248,236,.65);}
+
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+.pastel-plate{position:relative;width:100%;max-width:460px;aspect-ratio:1/1;}
+.plate-glow{
+  position:absolute;inset:6%;
+  background:radial-gradient(circle,rgba(227,167,47,.4),transparent 68%);
+  filter:blur(30px);
+  animation:pulse 5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.7;transform:scale(1);}50%{opacity:1;transform:scale(1.06);}}
+.pastel-hero-svg{position:relative;z-index:2;width:100%;height:100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-16px) rotate(1deg);}}
+.steam{position:absolute;bottom:56%;left:50%;width:120px;height:140px;transform:translateX(-50%);z-index:3;pointer-events:none;}
+.steam path{stroke:rgba(255,248,236,.55);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:60;stroke-dashoffset:60;animation:rise 3.4s ease-in-out infinite;}
+.steam path:nth-child(2){animation-delay:.6s;}
+.steam path:nth-child(3){animation-delay:1.2s;}
+@keyframes rise{0%{stroke-dashoffset:60;opacity:0;transform:translateY(10px);}30%{opacity:.9;}100%{stroke-dashoffset:0;opacity:0;transform:translateY(-40px);}}
+
+.scroll-cue{position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,248,236,.55);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;z-index:3;}
+.scroll-cue .line{width:1px;height:34px;background:linear-gradient(var(--gold-light),transparent);animation:scrolldown 2s ease-in-out infinite;}
+@keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* ===== SOBRE ===== */
+.sobre{background:var(--cream);}
+.sobre-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center;}
+.sobre-visual{position:relative;}
+.sobre-frame{
+  position:relative;border-radius:26px;overflow:hidden;
+  background:linear-gradient(150deg,var(--red),var(--red-deep));
+  aspect-ratio:4/5;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow);
+}
+.sobre-frame svg{width:64%;filter:drop-shadow(0 18px 24px rgba(0,0,0,.35));}
+.sobre-badge{
+  position:absolute;bottom:-1.6rem;right:-1.4rem;
+  background:var(--gold);color:var(--red-deep);
+  border-radius:50%;width:128px;height:128px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:'Fraunces',serif;font-weight:700;font-size:.95rem;line-height:1.15;
+  box-shadow:0 18px 32px -10px rgba(227,167,47,.6);
+  border:4px solid var(--cream);
+}
+.sobre-text p{margin-top:1.1rem;color:#4a3a30;font-size:1.02rem;max-width:540px;}
+.sobre-text p:first-of-type{margin-top:1.4rem;}
+.sobre-signature{margin-top:1.8rem;font-family:'Fraunces',serif;font-style:italic;color:var(--red);font-size:1.1rem;}
+
+/* diferenciais */
+.diferenciais{background:var(--cream-dim);}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;}
+.diff-card{
+  background:var(--white);
+  border-radius:20px;
+  padding:2.2rem 1.8rem;
+  box-shadow:0 16px 34px -22px rgba(27,19,16,.35);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  position:relative;
+  overflow:hidden;
+}
+.diff-card::before{
+  content:"";position:absolute;top:0;left:0;width:100%;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--red));
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);
+}
+.diff-card:hover{transform:translateY(-8px);box-shadow:0 26px 44px -20px rgba(27,19,16,.4);}
+.diff-card:hover::before{transform:scaleX(1);}
+.diff-icon{
+  width:54px;height:54px;border-radius:14px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem;
+}
+.diff-icon svg{width:26px;height:26px;color:var(--red-deep);}
+.diff-card h3{font-size:1.18rem;margin-bottom:.5rem;}
+.diff-card p{color:#5a483c;font-size:.94rem;}
+
+/* ===== CARDAPIO ===== */
+.cardapio{background:var(--black);color:var(--cream);}
+.cardapio .eyebrow{color:var(--gold-light);}
+.cardapio .eyebrow::before{background:var(--gold-light);}
+.cardapio .section-head h2{color:var(--cream);}
+.cardapio .section-head p{color:rgba(255,248,236,.68);}
+.tabs{display:flex;gap:.8rem;margin-bottom:2.6rem;flex-wrap:wrap;}
+.tab-btn{
+  padding:.7rem 1.5rem;border-radius:100px;
+  border:1.5px solid rgba(255,248,236,.22);
+  color:rgba(255,248,236,.75);font-weight:700;font-size:.88rem;
+  transition:all .35s var(--ease);
+}
+.tab-btn.active,.tab-btn:hover{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--red-deep);border-color:transparent;
+}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+.menu-item{
+  display:none;
+  background:var(--black-soft);
+  border-radius:20px;
+  padding:1.5rem;
+  border:1px solid rgba(255,248,236,.08);
+  transition:transform .4s var(--ease), border-color .4s var(--ease);
+}
+.menu-item.show{display:flex;flex-direction:column;gap:1rem;animation:fadein .5s var(--ease);}
+@keyframes fadein{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.menu-item:hover{transform:translateY(-6px);border-color:rgba(227,167,47,.4);}
+.menu-thumb{
+  aspect-ratio:16/11;border-radius:14px;overflow:hidden;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.menu-thumb svg{width:66%;filter:drop-shadow(0 8px 12px rgba(0,0,0,.4));}
+.menu-item-top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;}
+.menu-item-top h4{font-size:1.12rem;color:var(--cream);}
+.menu-price{font-family:'Fraunces',serif;font-weight:700;color:var(--gold-light);font-size:1.15rem;white-space:nowrap;}
+.menu-item p{font-size:.87rem;color:rgba(255,248,236,.62);flex-grow:1;}
+.menu-order{
+  align-self:flex-start;
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.82rem;font-weight:700;color:var(--gold-light);
+  padding:.5rem 0;
+}
+.menu-order svg{width:15px;height:15px;transition:transform .3s var(--ease);}
+.menu-order:hover svg{transform:translateX(4px);}
+
+/* ===== GALERIA ===== */
+.galeria{background:var(--cream);}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:1rem;}
+.gallery-item{
+  position:relative;border-radius:18px;overflow:hidden;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2;}
+.gallery-item:nth-child(4){grid-column:span 2;}
+.gallery-item:nth-child(7){grid-row:span 2;}
+.gallery-item svg{width:52%;height:52%;transition:transform .6s var(--ease);}
+.gallery-item::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(27,19,16,.75),transparent 55%);
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.gallery-caption{
+  position:absolute;left:1rem;bottom:1rem;color:var(--cream);
+  font-family:'Fraunces',serif;font-weight:600;font-size:1rem;
+  opacity:0;transform:translateY(10px);transition:all .4s var(--ease);z-index:2;
+}
+.gallery-item:hover svg{transform:scale(1.12) rotate(-3deg);}
+.gallery-item:hover::after,.gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0);}
+
+/* ===== AVALIACOES ===== */
+.avaliacoes{background:var(--cream-dim);}
+.rating-summary{
+  display:flex;align-items:center;gap:1.5rem;margin-bottom:3rem;
+  background:var(--white);padding:1.6rem 2rem;border-radius:20px;
+  box-shadow:0 16px 34px -22px rgba(27,19,16,.3);max-width:fit-content;
+}
+.rating-number{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:700;color:var(--red);}
+.stars{color:var(--gold);font-size:1.1rem;letter-spacing:.1em;}
+.rating-sub{font-size:.85rem;color:#6a584a;}
+.review-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;}
+.review-card{
+  background:var(--white);border-radius:18px;padding:1.8rem;
+  box-shadow:0 14px 30px -22px rgba(27,19,16,.3);
+  transition:transform .4s var(--ease);
+}
+.review-card:hover{transform:translateY(-6px);}
+.review-card .stars{display:block;margin-bottom:.9rem;}
+.review-card p{font-family:'Fraunces',serif;font-style:italic;color:var(--black);font-size:1.02rem;}
+.review-card span{display:block;margin-top:1rem;font-size:.8rem;font-weight:700;color:var(--red);}
+
+/* ===== DELIVERY ===== */
+.delivery{
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%);
+  color:var(--cream);position:relative;overflow:hidden;
+}
+.delivery::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(700px 400px at 90% 20%, rgba(227,167,47,.25), transparent 60%);
+}
+.delivery-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;}
+.delivery .eyebrow{color:var(--gold-light);}
+.delivery .eyebrow::before{background:var(--gold-light);}
+.delivery h2{color:var(--cream);font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:.8rem;}
+.delivery p{color:rgba(255,248,236,.8);margin-top:1rem;max-width:480px;}
+.zone-list{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;}
+.zone-pill{
+  padding:.6rem 1.3rem;border-radius:100px;
+  background:rgba(255,248,236,.1);border:1px solid rgba(255,248,236,.25);
+  font-size:.88rem;font-weight:600;
+}
+.delivery-actions{margin-top:2.2rem;}
+.delivery-card{
+  background:rgba(27,19,16,.28);
+  border:1px solid rgba(255,248,236,.18);
+  border-radius:22px;padding:2.2rem;backdrop-filter:blur(6px);
+}
+.delivery-card h4{color:var(--gold-light);font-size:1.3rem;margin-bottom:1rem;}
+.delivery-row{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px dashed rgba(255,248,236,.2);font-size:.92rem;}
+.delivery-row:last-child{border-bottom:none;}
+.delivery-row span:first-child{color:rgba(255,248,236,.65);}
+.delivery-row span:last-child{font-weight:700;}
+
+/* ===== CONTATO ===== */
+.contato{background:var(--cream);}
+.contato-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:2.5rem;align-items:stretch;}
+.contact-card{
+  background:var(--black);color:var(--cream);border-radius:24px;padding:2.6rem;
+  display:flex;flex-direction:column;gap:1.6rem;box-shadow:var(--shadow);
+}
+.contact-row{display:flex;gap:1rem;align-items:flex-start;}
+.contact-row .icon{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-row .icon svg{width:20px;height:20px;color:var(--red-deep);}
+.contact-row h5{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:.3rem;}
+.contact-row p,.contact-row a{font-size:.98rem;color:rgba(255,248,236,.88);}
+.map-wrap{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);min-height:340px;}
+.map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.15) contrast(1.05);}
+
+/* ===== FOOTER ===== */
+footer{background:var(--black);color:rgba(255,248,236,.7);padding:4rem 1.5rem 2rem;}
+.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:3rem;}
+.footer-logo{display:flex;align-items:center;gap:.7rem;font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--cream);margin-bottom:1rem;}
+.footer-logo svg{width:38px;height:38px;}
+.footer-col h5{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.1rem;}
+.footer-col p, .footer-col a{display:block;font-size:.9rem;margin-bottom:.7rem;color:rgba(255,248,236,.68);transition:color .3s;}
+.footer-col a:hover{color:var(--gold-light);}
+.footer-bottom{
+  max-width:1180px;margin:3rem auto 0;padding-top:1.6rem;border-top:1px solid rgba(255,248,236,.1);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.8rem;color:rgba(255,248,236,.5);
+}
+
+/* whatsapp float button */
+.wa-float{
+  position:fixed;bottom:1.6rem;right:1.6rem;z-index:90;
+  width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 16px 30px -10px rgba(227,167,47,.65);
+  animation:wafloat 2.6s ease-in-out infinite;
+}
+.wa-float svg{width:28px;height:28px;color:var(--red-deep);}
+@keyframes wafloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1024px){
+  .hero-grid,.sobre-grid,.contato-grid,.delivery-inner{grid-template-columns:1fr;}
+  .hero-visual{order:-1;max-width:340px;margin:0 auto;}
+  .sobre-visual{max-width:320px;margin:0 auto;}
+  .card-grid{grid-template-columns:repeat(2,1fr);}
+  .menu-grid{grid-template-columns:repeat(2,1fr);}
+  .review-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:760px){
+  .nav-links{display:none;}
+  .nav-cta .btn-primary span{display:none;}
+  .burger{display:flex;}
+  .section{padding:5rem 1.2rem;}
+  .card-grid,.menu-grid,.review-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1;}
+  .gallery-item:nth-child(7){grid-row:span 1;}
+  .hero-stats{gap:1.4rem;}
+  .footer-inner{grid-template-columns:1fr;}
+  .rating-summary{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= SVG SYMBOLS (signature "pastel" shape reused across the site) ================= -->
+<svg width="0" height="0" style="position:absolute">
+<defs>
+  <symbol id="pastel-shape" viewBox="0 0 200 140">
+    <defs>
+      <linearGradient id="pastelFillGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#F6CE68"/>
+        <stop offset="55%" stop-color="#E3A72F"/>
+        <stop offset="100%" stop-color="#A9761A"/>
+      </linearGradient>
+    </defs>
+    <path d="M20,70 Q20,20 100,20 Q180,20 180,70 Q180,120 100,120 Q20,120 20,70 Z" fill="url(#pastelFillGrad)"/>
+    <path d="M28,42 Q34,32 42,40 Q50,30 58,40 Q66,30 74,40 Q82,30 90,40 Q98,30 106,40 Q114,30 122,40 Q130,30 138,40 Q146,30 154,40 Q162,32 168,42" fill="none" stroke="#A9761A" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+    <path d="M28,98 Q34,108 42,100 Q50,110 58,100 Q66,110 74,100 Q82,110 90,100 Q98,110 106,100 Q114,110 122,100 Q130,110 138,100 Q146,110 154,100 Q162,108 168,98" fill="none" stroke="#A9761A" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+    <ellipse cx="100" cy="70" rx="46" ry="30" fill="#7A1220" opacity=".14"/>
+    <path d="M60,72 Q100,55 140,72" stroke="#FFF8EC" stroke-width="3" fill="none" opacity=".4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9-6.3 3.9 1.7-7L2 9.2l7.1-.6z" fill="currentColor"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 32 32"><path fill="currentColor" d="M16.02 3C9.4 3 4 8.37 4 15c0 2.44.71 4.72 1.94 6.63L4.5 29l7.55-1.98A11.9 11.9 0 0 0 16.02 27C22.64 27 28 21.63 28 15S22.64 3 16.02 3zm6.98 17.06c-.3.83-1.5 1.53-2.42 1.72-.65.14-1.5.25-4.36-.94-3.66-1.52-6.02-5.24-6.2-5.48-.18-.24-1.48-1.97-1.48-3.76 0-1.79.94-2.66 1.27-3.02.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.08.81.62.3.72 1.03 2.5 1.12 2.68.09.18.15.4.03.64-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.85-.21 1.68z"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.36 2.3.56 3.6.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.6 21 3 13.4 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.56 3.6a1 1 0 0 1-.25 1z" fill="currentColor"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z" fill="currentColor"/></symbol>
+  <symbol id="icon-insta" viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43C21.99 8.94 22 9.3 22 12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47C15.06 21.99 14.7 22 12 22s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.7 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.94.01 9.3 0 12 0zm0 5.4A6.6 6.6 0 1 0 12 18.6 6.6 6.6 0 0 0 12 5.4zm0 2A4.6 4.6 0 1 1 12 16.6 4.6 4.6 0 0 1 12 7.4zm6.9-2.2a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" fill="currentColor"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4V6h-2v7l5.2 3.1 1-1.6z" fill="currentColor"/></symbol>
+  <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 10 4 18c0 1.1.2 1.9.2 1.9S5 20 6 20c8 0 14-6 14-16z" fill="currentColor"/></symbol>
+  <symbol id="icon-crunch" viewBox="0 0 24 24"><path d="M3 12c2-3 4 3 6 0s4 3 6 0 4 3 6 0" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.5 8 2.4 4 6.3 4c2 0 3.6 1.1 4.7 2.7C12.1 5.1 13.7 4 15.7 4c3.9 0 5.8 4 4.3 7.7C19.5 16.4 12 21 12 21z" fill="currentColor"/></symbol>
+  <symbol id="icon-tag" viewBox="0 0 24 24"><path d="M20 12l-8 8-9-9V3h8zM7 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="currentColor"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs>
+</svg>
+
+<!-- reusable scallop (crimped pastel edge) divider generator -->
+<template id="scallop-template">
+  <svg class="scallop" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="SCALLOP_ID" width="28" height="26" patternUnits="userSpaceOnUse">
+        <path d="M0,4 Q7,20 14,4 Q21,20 28,4" fill="none" stroke="SCALLOP_COLOR" stroke-width="2.4" stroke-linecap="round"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#SCALLOP_ID)"/>
+  </svg>
+</template>
+
+<!-- ================= HEADER ================= -->
+<header id="site-header">
+  <div class="nav-wrap">
+    <a href="#inicio" class="logo">
+      <svg class="logo-mark" viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#7A1220"/><use href="#pastel-shape" x="18" y="30" width="64" height="45"/></svg>
+      <span>Pastelaria Gule<small>Pastéis Super Recheados</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/5511985492861?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Pastelaria%20Gule%20%F0%9F%A5%9F">
+        <svg><use href="#icon-whatsapp"/></svg><span>Pedir Agora</span>
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Início</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#cardapio">Cardápio</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#avaliacoes">Avaliações</a>
+  <a href="#contato">Contato</a>
+  <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/5511985492861?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Pastelaria%20Gule%20%F0%9F%A5%9F"><svg><use href="#icon-whatsapp"/></svg>Pedir pelo WhatsApp</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow hero-eyebrow">Guarulhos · Cumbica · Região</p>
+      <h1>Os pastéis mais <em>recheados</em> de Guarulhos</h1>
+      <p class="lead">Sabor, qualidade e tradição em cada mordida. Massa crocante por fora, generosamente recheada por dentro — feita todos os dias, na hora.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/5511985492861?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Pastelaria%20Gule%20%F0%9F%A5%9F">
+          <svg><use href="#icon-whatsapp"/></svg>Peça pelo WhatsApp
+        </a>
+        <a class="btn btn-outline" href="#cardapio" style="color:#FFF8EC;border-color:rgba(255,248,236,.3)">Ver Cardápio</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>4,6★</strong><span>+250 avaliações</span></div>
+        <div><strong>16</strong><span>sabores no cardápio</span></div>
+        <div><strong>3</strong><span>presencial · retirada · delivery</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pastel-plate">
+        <div class="plate-glow"></div>
+        <svg class="steam" viewBox="0 0 120 140">
+          <path d="M30,140 Q10,100 35,70 Q55,45 30,10"/>
+          <path d="M60,140 Q40,105 62,72 Q80,48 58,8"/>
+          <path d="M90,140 Q70,100 92,70 Q108,45 86,10"/>
+        </svg>
+        <svg class="pastel-hero-svg" viewBox="0 0 200 140"><use href="#pastel-shape"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Role a página</span><div class="line"></div></div>
+</section>
+
+<div id="scallop-1"></div>
+
+<!-- ================= SOBRE ================= -->
+<section class="section sobre" id="sobre">
+  <div class="section-inner sobre-grid">
+    <div class="sobre-visual reveal">
+      <div class="sobre-frame">
+        <svg viewBox="0 0 200 140"><use href="#pastel-shape"/></svg>
+        <div class="sobre-badge">Desde<br>sempre<br>artesanal</div>
+      </div>
+    </div>
+    <div class="sobre-text">
+      <p class="eyebrow">Nossa história</p>
+      <h2 style="margin-top:.7rem;font-size:clamp(1.9rem,3.6vw,2.6rem)">Bem-vindos à Pastelaria Gule</h2>
+      <p>Somos especializados em pastéis super recheados, preparados com ingredientes selecionados e muito sabor — do jeito que a família Guarulhense mais gosta: generoso, quentinho e feito na hora.</p>
+      <p>Cada pastel sai da nossa cozinha com massa fina e crocante, recheio farto até a última mordida e o cuidado de quem trata cliente como parte da casa. Trabalhamos com atendimento presencial, retirada no local e delivery para Cumbica e toda a região de Guarulhos.</p>
+      <p>Nosso objetivo é simples: um pastel crocante por fora, extremamente recheado por dentro, com um atendimento de qualidade em cada pedido.</p>
+      <p class="sobre-signature">— Equipe Pastelaria Gule</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIFERENCIAIS ================= -->
+<section class="section diferenciais">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">Por que a Gule</p>
+      <h2>Feito para abrir seu apetite</h2>
+      <p>Seis motivos que fazem os clientes voltarem sempre.</p>
+    </div>
+    <div class="card-grid reveal-stagger">
+      <div class="diff-card"><div class="diff-icon"><svg><use href="#icon-heart"/></svg></div><h3>Pastéis Super Recheados</h3><p>Recheio generoso do primeiro ao último pedaço, sem economia.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg><use href="#icon-leaf"/></svg></div><h3>Ingredientes Selecionados</h3><p>Escolhemos com cuidado cada ingrediente para garantir sabor de verdade.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg><use href="#icon-clock"/></svg></div><h3>Entrega Rápida</h3><p>Delivery ágil para Cumbica, Cidade Industrial e toda a região.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg><use href="#icon-crunch"/></svg></div><h3>Massa Crocante</h3><p>Fritura no ponto certo: crocante por fora, macia e recheada por dentro.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg><use href="#icon-check"/></svg></div><h3>Ótimo Atendimento</h3><p>Atendimento familiar, rápido e atencioso do pedido à entrega.</p></div>
+      <div class="diff-card"><div class="diff-icon"><svg><use href="#icon-tag"/></svg></div><h3>Melhor Custo-Benefício</h3><p>Muito sabor e fartura por um preço que cabe no seu bolso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CARDAPIO ================= -->
+<section class="section cardapio" id="cardapio">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">Cardápio</p>
+      <h2>Escolha o seu recheio favorito</h2>
+      <p>Da tradição aos especiais da casa, passando pelos doces — todos com muito recheio.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-cat="tradicionais">Tradicionais</button>
+      <button class="tab-btn" data-cat="especiais">Especiais</button>
+      <button class="tab-btn" data-cat="doces">Doces</button>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section class="section galeria" id="galeria">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">Galeria</p>
+      <h2>Uma prévia do que está fritando</h2>
+      <p>Passe o mouse e sinta a vontade de pedir agora mesmo.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ================= AVALIACOES ================= -->
+<section class="section avaliacoes" id="avaliacoes">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">Avaliações</p>
+      <h2>O que dizem sobre a Gule</h2>
+    </div>
+    <div class="rating-summary reveal">
+      <div class="rating-number">4,6</div>
+      <div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-sub">Mais de 250 avaliações de clientes</div>
+      </div>
+    </div>
+    <div class="review-grid reveal-stagger">
+      <div class="review-card"><span class="stars">★★★★★</span><p>"Melhor pastel de Guarulhos."</p><span>Cliente Gule</span></div>
+      <div class="review-card"><span class="stars">★★★★★</span><p>"Pastel enorme e muito recheado."</p><span>Cliente Gule</span></div>
+      <div class="review-card"><span class="stars">★★★★★</span><p>"Entrega muito rápida."</p><span>Cliente Gule</span></div>
+      <div class="review-card"><span class="stars">★★★★★</span><p>"Vale cada centavo."</p><span>Cliente Gule</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DELIVERY ================= -->
+<section class="section delivery">
+  <div class="section-inner delivery-inner">
+    <div class="reveal">
+      <p class="eyebrow">Delivery Gule</p>
+      <h2>Seu pastel quentinho, na sua casa</h2>
+      <p>Entregamos para toda a região — peça pelo WhatsApp e receba seu pedido fresquinho, direto da fritadeira para sua mesa.</p>
+      <div class="zone-list">
+        <span class="zone-pill">📍 Cumbica</span>
+        <span class="zone-pill">📍 Guarulhos</span>
+        <span class="zone-pill">📍 Cidade Industrial</span>
+        <span class="zone-pill">📍 Região</span>
+      </div>
+      <div class="delivery-actions">
+        <a class="btn btn-light" target="_blank" rel="noopener" href="https://wa.me/5511985492861?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20delivery%20na%20Pastelaria%20Gule%20%F0%9F%9B%B5"><svg><use href="#icon-whatsapp"/></svg>Pedir Delivery Agora</a>
+      </div>
+    </div>
+    <div class="delivery-card reveal">
+      <h4>Atendimento</h4>
+      <div class="delivery-row"><span>Refeição no local</span><span>✔</span></div>
+      <div class="delivery-row"><span>Retirada</span><span>✔</span></div>
+      <div class="delivery-row"><span>Delivery</span><span>✔</span></div>
+      <div class="delivery-row"><span>Faixa de preço</span><span>R$20 – R$40</span></div>
+      <div class="delivery-row"><span>Avaliação</span><span>⭐ 4,6 / 5</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="section contato" id="contato">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <p class="eyebrow">Contato</p>
+      <h2>Venha nos visitar ou faça seu pedido</h2>
+    </div>
+    <div class="contato-grid">
+      <div class="contact-card reveal">
+        <div class="contact-row"><div class="icon"><svg><use href="#icon-pin"/></svg></div><div><h5>Endereço</h5><p>Av. Santos Dumont, 2631 — Cidade Industrial Satélite de São Paulo, Guarulhos - SP, CEP 07220-000</p></div></div>
+        <div class="contact-row"><div class="icon"><svg><use href="#icon-phone"/></svg></div><div><h5>Telefone</h5><a href="tel:+551124462812">(11) 2446-2812</a></div></div>
+        <div class="contact-row"><div class="icon"><svg><use href="#icon-whatsapp"/></svg></div><div><h5>WhatsApp</h5><a target="_blank" rel="noopener" href="https://wa.me/5511985492861">(11) 98549-2861</a></div></div>
+        <div class="contact-row"><div class="icon"><svg><use href="#icon-insta"/></svg></div><div><h5>Instagram</h5><a target="_blank" rel="noopener" href="https://instagram.com/pastelariagule">@pastelariagule</a></div></div>
+        <a class="btn btn-primary" style="margin-top:.6rem" target="_blank" rel="noopener" href="https://wa.me/5511985492861?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Pastelaria%20Gule%20%F0%9F%A5%9F"><svg><use href="#icon-whatsapp"/></svg>Falar no WhatsApp</a>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Av.+Santos+Dumont,+2631,+Guarulhos+-+SP,+07220-000&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa Pastelaria Gule"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="scallop-2"></div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="24" fill="#E3A72F"/><use href="#pastel-shape" x="14" y="28" width="72" height="50"/></svg>
+        Pastelaria Gule
+      </div>
+      <p style="max-width:280px">Pastéis super recheados, massa crocante e muito sabor — presencial, retirada e delivery em Guarulhos.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <a href="tel:+551124462812">(11) 2446-2812</a>
+      <a target="_blank" rel="noopener" href="https://wa.me/5511985492861">(11) 98549-2861</a>
+      <a target="_blank" rel="noopener" href="https://instagram.com/pastelariagule">@pastelariagule</a>
+    </div>
+    <div class="footer-col">
+      <h5>Endereço</h5>
+      <p>Av. Santos Dumont, 2631<br>Cidade Industrial Satélite de São Paulo<br>Guarulhos - SP, CEP 07220-000</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Pastelaria Gule. Todos os direitos reservados.</span>
+    <span>Pastéis Super Recheados 🥟</span>
+  </div>
+</footer>
+
+<a class="wa-float" target="_blank" rel="noopener" href="https://wa.me/5511985492861?text=Ol%C3%A1!%20Quero%20fazer%20um%20pedido%20na%20Pastelaria%20Gule%20%F0%9F%A5%9F" aria-label="Pedir pelo WhatsApp"><svg><use href="#icon-whatsapp"/></svg></a>
+
+<script>
+/* ---------- header scroll state ---------- */
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ---------- mobile menu ---------- */
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.remove('open')));
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=> io.observe(el));
+
+/* ---------- scallop dividers ---------- */
+function buildScallop(targetId, color){
+  const tpl = document.getElementById('scallop-template').content.cloneNode(true);
+  const uid = 'sc_'+Math.random().toString(36).slice(2);
+  const html = tpl.querySelector('svg').outerHTML.replaceAll('SCALLOP_ID', uid).replaceAll('SCALLOP_COLOR', color);
+  document.getElementById(targetId).outerHTML = `<div id="${targetId}">${html}</div>`;
+}
+buildScallop('scallop-1', '#E3A72F');
+buildScallop('scallop-2', '#E3A72F');
+
+/* ---------- menu data ---------- */
+const WA = "5511985492861";
+const menuData = {
+  tradicionais:[
+    {n:"Queijo", d:"Massa crocante recheada com muito queijo derretido.", p:"R$ 18"},
+    {n:"Carne", d:"Recheio suculento de carne moída bem temperada.", p:"R$ 19"},
+    {n:"Pizza", d:"Queijo, presunto, orégano e molho especial da casa.", p:"R$ 20"},
+    {n:"Frango", d:"Frango desfiado temperado na medida certa.", p:"R$ 19"},
+    {n:"Calabresa", d:"Calabresa fatiada com queijo derretido por cima.", p:"R$ 20"},
+    {n:"Palmito", d:"Recheio cremoso de palmito refogado com temperos.", p:"R$ 20"},
+  ],
+  especiais:[
+    {n:"Frango com Catupiry", d:"Frango desfiado com muito catupiry cremoso.", p:"R$ 24"},
+    {n:"Costela", d:"Costela desfiada, cozida lentamente até desmanchar.", p:"R$ 26"},
+    {n:"Carne Seca", d:"Carne seca desfiada com temperos especiais da casa.", p:"R$ 26"},
+    {n:"Cheddar", d:"Recheio extra generoso de cheddar cremoso.", p:"R$ 23"},
+    {n:"Bacon", d:"Bacon crocante com bastante queijo derretido.", p:"R$ 24"},
+    {n:"Strogonoff", d:"Strogonoff cremoso de frango, bem generoso.", p:"R$ 25"},
+  ],
+  doces:[
+    {n:"Chocolate", d:"Recheio generoso de chocolate ao leite derretido.", p:"R$ 16"},
+    {n:"Banana", d:"Banana caramelizada com toque de canela.", p:"R$ 16"},
+    {n:"Prestígio", d:"Chocolate cremoso com coco ralado.", p:"R$ 17"},
+    {n:"Romeu e Julieta", d:"Goiabada derretida com queijo quentinho.", p:"R$ 17"},
+  ]
+};
+const menuGrid = document.getElementById('menuGrid');
+Object.entries(menuData).forEach(([cat, items])=>{
+  items.forEach(item=>{
+    const el = document.createElement('div');
+    el.className = 'menu-item';
+    el.dataset.cat = cat;
+    const msg = encodeURIComponent(`Olá! Gostaria de pedir um pastel de ${item.n} 🥟`);
+    el.innerHTML = `
+      <div class="menu-thumb" style="background:linear-gradient(135deg,rgba(227,167,47,.16),rgba(122,18,32,.28))">
+        <svg><use href="#pastel-shape"/></svg>
+      </div>
+      <div class="menu-item-top"><h4>${item.n}</h4><span class="menu-price">${item.p}</span></div>
+      <p>${item.d}</p>
+      <a class="menu-order" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${msg}">Pedir agora <svg><use href="#icon-arrow"/></svg></a>
+    `;
+    menuGrid.appendChild(el);
+  });
+});
+function filterMenu(cat){
+  document.querySelectorAll('.menu-item').forEach(el=>{
+    el.classList.toggle('show', el.dataset.cat === cat);
+  });
+}
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    filterMenu(btn.dataset.cat);
+  });
+});
+filterMenu('tradicionais');
+
+/* ---------- gallery ---------- */
+const galleryItems = [
+  {n:"Pastel de Queijo", c1:"#F6CE68", c2:"#A9761A"},
+  {n:"Pastel de Carne", c1:"#E3A72F", c2:"#7A1220"},
+  {n:"Pastel de Pizza", c1:"#F6CE68", c2:"#C4841F"},
+  {n:"Pastel de Frango c/ Catupiry", c1:"#EFC24E", c2:"#8C4A15"},
+  {n:"Pastel Doce de Chocolate", c1:"#D9A441", c2:"#4A0C13"},
+  {n:"Pastel de Costela", c1:"#E9B646", c2:"#7A1220"},
+  {n:"Pastel de Cheddar e Bacon", c1:"#F2C14E", c2:"#9C6414"},
+  {n:"Pastel de Calabresa", c1:"#E3A72F", c2:"#5C0F1A"},
+];
+const galleryGrid = document.getElementById('galleryGrid');
+galleryItems.forEach(g=>{
+  const el = document.createElement('div');
+  el.className = 'gallery-item';
+  el.style.background = `linear-gradient(135deg, ${g.c1}, ${g.c2})`;
+  el.innerHTML = `<svg><use href="#pastel-shape"/></svg><span class="gallery-caption">${g.n}</span>`;
+  galleryGrid.appendChild(el);
+});
+</script>
+</body>
+</html>
